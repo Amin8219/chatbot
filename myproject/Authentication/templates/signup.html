@@ -1,0 +1,21 @@
+<!-- authentication/templates/signup.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ثبت‌نام</title>
+</head>
+<body>
+    <h2>ثبت‌نام</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color:green;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">ثبت‌نام</button>
+    </form>
+    <p><a href="{% url 'login' %}">ورود به حساب کاربری</a></p>
+</body>
+</html>

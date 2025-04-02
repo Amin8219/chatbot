@@ -1,0 +1,32 @@
+<!-- authentication/templates/login.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ورود</title>
+</head>
+<body>
+    <h2>ورود</h2>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color:green;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            <label>نام کاربری:</label>
+            <input type="text" name="username">
+        </p>
+        <p>
+            <label>رمز عبور:</label>
+            <input type="password" name="password">
+        </p>
+        <button type="submit">ورود</button>
+    </form>
+    <p><a href="{% url 'signup' %}">ثبت‌نام</a></p>
+    <p><a href="{% url 'forgot_password' %}">فراموشی رمز عبور</a></p>
+</body>
+</html>
